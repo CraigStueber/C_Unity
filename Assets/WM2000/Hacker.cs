@@ -8,15 +8,15 @@ public class Hacker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShowMainMenu();
+        ShowMainMenu("Craig");
 
     }
 
-    void ShowMainMenu()
+    void ShowMainMenu(string Name)
     {
         Terminal.ClearScreen();
-        var greeting = "Hello Craig!";
-        Terminal.WriteLine(greeting); 
+        var greeting = Name;
+        Terminal.WriteLine("Hello " + greeting + "!");
         Terminal.WriteLine("Would you like to hack into....");
         Terminal.WriteLine("");
         Terminal.WriteLine("Press 1 for the Mayor's Office");
@@ -26,10 +26,34 @@ public class Hacker : MonoBehaviour
         Terminal.WriteLine("Enter your selection:");
 
     }
-
-    // Update is called once per frame
-    void Update()
+    void OnUserInput(string input)
     {
-        
+        if (input == "menu")
+        {
+            ShowMainMenu("Craig");
+        }
+        else if(input == "1")
+        {
+            Terminal.WriteLine("You picked Mayor's Office!");
+        }
+        else if (input == "2")
+        {
+            Terminal.WriteLine("You picked Governor's Office!");
+        }
+        else if(input =="3")
+        {
+            Terminal.WriteLine("You picked the White House");
+        }
+        else if (input == "Megan")
+        {
+            Terminal.WriteLine("Megan is the prettiest lady ever!!");
+        }
+        else
+        {
+            Terminal.WriteLine("You picked nothing....");
+        }
+
     }
 }
+
+   
